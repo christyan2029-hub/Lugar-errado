@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>...</title>
+
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            cursor: none; /* Esconde o mouse */
+            background: black;
+        }
+
+        #video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="video-container">
+        <iframe 
+            src="https://www.youtube.com/embed/6EVFAJ9UUhY?autoplay=1&mute=1&controls=0&loop=1&playlist=6EVFAJ9UUhY&modestbranding=1&rel=0"
+            allow="autoplay; fullscreen">
+        </iframe>
+    </div>
+
+    <script>
+        // Bloqueio de teclas
+        document.addEventListener("keydown", function(e) {
+            if (
+                e.key === "F11" ||
+                e.key === "Escape" ||
+                (e.ctrlKey && e.key === "w") ||
+                (e.altKey && e.key === "Tab")
+            ) {
+                e.preventDefault();
+                return false;
+            }
+        });
+
+        // Bloqueia clique direito
+        document.addEventListener("contextmenu", function(e) {
+            e.preventDefault();
+        });
+
+        // Força fullscreen ao clicar
+        document.addEventListener("click", () => {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(() => {});
+            }
+        });
+    </script>
+
+</body>
+</html>
