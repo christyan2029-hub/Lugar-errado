@@ -11,36 +11,29 @@
             width: 100%;
             height: 100%;
             overflow: hidden;
-            cursor: none; /* Esconde o mouse */
             background: black;
+            cursor: none; /* Esconde o mouse */
         }
 
-        #video-container {
+        video {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-        }
-
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
+            object-fit: cover; /* Preenche a tela */
         }
     </style>
 </head>
 <body>
 
-    <div id="video-container">
-        <iframe 
-            src="https://www.youtube.com/embed/6EVFAJ9UUhY?autoplay=1&mute=1&controls=0&loop=1&playlist=6EVFAJ9UUhY&modestbranding=1&rel=0"
-            allow="autoplay; fullscreen">
-        </iframe>
-    </div>
+    <video id="bgVideo" autoplay loop muted playsinline>
+        <source src="Erro.mp4" type="video/mp4">
+        Seu navegador não suporta vídeo.
+    </video>
 
     <script>
-        // Bloqueio de teclas
+        // Bloqueio de teclas (limitação do navegador)
         document.addEventListener("keydown", function(e) {
             if (
                 e.key === "F11" ||
